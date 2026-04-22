@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 GITHUB_TOKEN=$1
 
-buildah login -u star-39 -p $GITHUB_TOKEN ghcr.io
+buildah login -u y01and3 -p $GITHUB_TOKEN ghcr.io
 
 #AArch64
 c1=$(buildah from --arch=arm64 docker://arm64v8/nginx:latest)
@@ -19,4 +19,4 @@ cd ../..
 
 buildah commit $c1 moe-sticker-bot:msb_nginx_aarch64
 
-buildah push moe-sticker-bot:msb_nginx_aarch64 ghcr.io/star-39/moe-sticker-bot:msb_nginx_aarch64
+buildah push moe-sticker-bot:msb_nginx_aarch64 ghcr.io/y01and3/moe-sticker-bot:msb_nginx_aarch64

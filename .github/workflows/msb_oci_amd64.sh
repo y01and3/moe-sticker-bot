@@ -2,7 +2,7 @@
 
 GITHUB_TOKEN=$1
 
-buildah login -u star-39 -p $GITHUB_TOKEN ghcr.io
+buildah login -u y01and3 -p $GITHUB_TOKEN ghcr.io
 
 # AMD64
 #################################
@@ -22,13 +22,13 @@ buildah config --cmd '/moe-sticker-bot' $c1
 
 buildah commit $c1 moe-sticker-bot:base
 
-buildah push moe-sticker-bot:base ghcr.io/star-39/moe-sticker-bot:base
+buildah push moe-sticker-bot:base ghcr.io/y01and3/moe-sticker-bot:base
 
 fi
 #################################
 
 # Build container image.
-c1=$(buildah from ghcr.io/star-39/moe-sticker-bot:base)
+c1=$(buildah from ghcr.io/y01and3/moe-sticker-bot:base)
 
 # Install static build of ffmpeg.
 curl -JOL "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz"
@@ -47,5 +47,5 @@ buildah copy $c1 tools/msb_rlottie.py /usr/local/bin/msb_rlottie.py
 
 buildah commit $c1 moe-sticker-bot:latest
 
-buildah push moe-sticker-bot ghcr.io/star-39/moe-sticker-bot:amd64
-buildah push moe-sticker-bot ghcr.io/star-39/moe-sticker-bot:latest
+buildah push moe-sticker-bot ghcr.io/y01and3/moe-sticker-bot:amd64
+buildah push moe-sticker-bot ghcr.io/y01and3/moe-sticker-bot:latest
